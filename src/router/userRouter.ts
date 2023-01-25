@@ -9,7 +9,7 @@ userRouter.post("/create", async (req, res, next) => {
   if (!username) next(ApiError.badRequest("Username was not provided"));
   else if (!password) next(ApiError.badRequest("Password was not provided"));
   else
-    User.create({ username, password })
+    User.create({ username, password, access_token: username })
       .then(() =>
         res.json({
           access_token: username,
