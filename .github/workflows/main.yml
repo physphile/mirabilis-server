@@ -1,0 +1,12 @@
+on:
+  push:
+    branches: 
+      - master
+      
+jobs:
+  deploy:
+    name: deploy to server
+    runs-on: ubuntu-22.04
+    steps:
+      - name: build
+        run: sh deploy.sh
