@@ -8,8 +8,8 @@ jobs:
     name: deploy to server
     runs-on: ubuntu-latest
     steps:
-      - name: copy build/ directory
       - uses: actions/checkout@v2
+      - name: copy build/ directory
         uses: burnett01/rsync-deployments@5.2.1
         with:
           switches: -avzr --delete
