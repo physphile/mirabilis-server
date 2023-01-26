@@ -17,4 +17,4 @@ jobs:
           remote_path: /var/www/mirabilis-server/
           remote_host: '51.250.10.120'
           remote_user: physphile
-          key: ${{ secrets.ACTIONS_SSH_KEY }} 
+          remote_key: ${{ secrets.ACTIONS_SSH_KEY }} 
