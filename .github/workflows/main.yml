@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: copy build/ directory
+      - uses: actions/checkout@v2
         uses: burnett01/rsync-deployments@5.2.1
         with:
-        switches: -avzr --delete
+          switches: -avzr --delete
           path: src/build/
           remote_path: /var/www/mirabilis-server/
           remote_host: '51.250.10.120'
