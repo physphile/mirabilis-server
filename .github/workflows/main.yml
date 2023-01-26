@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: build
         run: |
-          rsync /src/build physphile@51.250.10.120/var/www/mirabilis-server/build
+          rsync ../../src/build source physphile@51.250.10.120/var/www/mirabilis-server/build
           cd /var/www/mirabilis-server
           sudo git pull
           nvm use
