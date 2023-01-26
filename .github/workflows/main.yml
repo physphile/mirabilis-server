@@ -6,13 +6,13 @@ on:
 jobs:
   deploy:
     name: deploy to server
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-      - name: build
-        run: |
-          rsync -avz ../../build/ physphile@51.250.10.120/var/www/mirabilis-server/build
-          cd /var/www/mirabilis-server
-          sudo git pull
-          nvm use
-          npm i
-          npm start
+      - name: copy build/ directory
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+        switches: -avzr --delete
+          path: src/build
+          remote_path: /var/www/mirabilis-server/
+          remote_host: '51.250.10.120'
+          remote_user: physphile
